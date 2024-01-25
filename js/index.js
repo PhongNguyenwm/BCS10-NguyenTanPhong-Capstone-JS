@@ -171,7 +171,7 @@ function buyPhone(productId) {
 }
 
 
-// Hàm khi người dùng bấm nút "Giỏ hàng"
+//! Hàm khi người dùng bấm nút "Giỏ hàng"
 function cartInfo() {
     // Lấy thông tin từ giỏ hàng trong Local Storage
     var cart = getCartInfo();
@@ -241,4 +241,13 @@ function removeFromCart(index) {
     cart.splice(index, 1);
     updateCartInfo(cart);
     cartInfo(); // Cập nhật lại thông tin trong modal
+      // Kiểm tra xem giỏ hàng có rỗng không
+      if (cart.length === 0) {
+        // Nếu giỏ hàng rỗng, thực hiện hành động để thoát khỏi trang thanh toán
+        // Ví dụ chuyển hướng về trang chủ:
+        window.location.href = "index.html";
+    }
+    
 }
+
+
