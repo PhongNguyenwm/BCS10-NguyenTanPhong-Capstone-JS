@@ -194,7 +194,11 @@ function cartInfo() {
             <td>${item.product.name}</td>
             <td>${item.product.price}</td>
             <td><img width="50" src="${item.product.img}" alt=""></td>
-            <td>${item.quantity}</td>
+            <td>
+            <button onclick="decrementQuantity(${index})"> - </button>
+            <span>${item.quantity}</span>
+            <button onclick="incrementQuantity(${index})"> + </button>
+        </td>
             </tr>
         `;
 
@@ -212,3 +216,29 @@ function cartInfo() {
     totalCell.innerHTML = ` ${totalPayment} $`;
 }
 
+// Hàm tăng số lượng sản phẩm trong giỏ hàng
+function incrementQuantity(index) {
+    var cart = getCartInfo();
+    cart[index].quantity++;
+    updateCartInfo(cart);
+    cartInfo(); // Cập nhật lại thông tin trong modal
+}
+
+// Hàm giảm số lượng sản phẩm trong giỏ hàng
+function decrementQuantity(index) {
+    var cart = getCartInfo();
+    if (cart[index].quantity > 0) {
+        cart[index].quantity--;
+        updateCartInfo(cart);
+        cartInfo(); // Cập nhật lại thông tin trong modal
+    }
+}
+
+
+// Hàm xoá sản phẩm khỏi giỏ hàng
+function removeFromCart(index) {
+    var cart = getCartInfo();
+    cart.splice(index, 1);
+    updateCartInfo(cart);
+    cartInfo(); // Cập nhật lại thông tin trong modal
+}
