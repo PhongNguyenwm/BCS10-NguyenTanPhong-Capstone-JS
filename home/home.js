@@ -195,9 +195,9 @@ function cartInfo() {
             <td>${item.product.price}</td>
             <td><img width="50" src="${item.product.img}" alt=""></td>
             <td>
-            <button onclick="decrementQuantity(${index})"> - </button>
+            <button onclick="giamSL(${index})"> - </button>
             <span>${item.quantity}</span>
-            <button onclick="incrementQuantity(${index})"> + </button>
+            <button onclick="tangSL(${index})"> + </button>
         </td>
             </tr>
         `;
@@ -217,7 +217,7 @@ function cartInfo() {
 }
 
 // Hàm tăng số lượng sản phẩm trong giỏ hàng
-function incrementQuantity(index) {
+function tangSL(index) {
     var cart = getCartInfo();
     cart[index].quantity++;
     updateCartInfo(cart);
@@ -225,7 +225,7 @@ function incrementQuantity(index) {
 }
 
 // Hàm giảm số lượng sản phẩm trong giỏ hàng
-function decrementQuantity(index) {
+function giamSL(index) {
     var cart = getCartInfo();
     if (cart[index].quantity > 0) {
         cart[index].quantity--;
