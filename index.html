@@ -33,9 +33,9 @@
     <div id="loading"></div>
 
     <div class="container">
-      <nav class="container navbar  ">
+      <nav class="container navbar">
         <div class="col-2">
-          <a class="navbar-brand" href="#" > CYBER PHONE</a>
+          <a class="navbar-brand" href="#"> CYBER PHONE</a>
         </div>
 
         <div class="sanPham col-4">
@@ -114,7 +114,7 @@
                 <th>Giá</th>
                 <th>Số lượng</th>
               </thead>
-              <thead id="thanhToan" style="text-align: center;"></thead>
+              <thead id="thanhToan" style="text-align: center"></thead>
             </table>
             <table class="table table-bordered">
               <thead>
@@ -124,9 +124,7 @@
             </table>
             <!-- Modal footer -->
             <div class="modal-footer">
-              <button onclick="removeCart()" class="btn btn-danger">
-                Huỷ
-              </button>
+              <button onclick="removeCart()" class="btn btn-danger">Huỷ</button>
               <button onclick="addProduct()" class="btn btn-success">
                 Thanh Toán
               </button>
@@ -136,49 +134,51 @@
       </div>
       <!--  -->
 
-    <!-- div để hiển thị thông báo -->
-<div id="thongBaoTT" style="display: none;" class="alert alert-success mt-3">
-  Thanh toán thành công!
-</div>
+      <!-- div để hiển thị thông báo -->
+      <div
+        id="thongBaoTT"
+        style="display: none"
+        class="alert alert-success mt-3"
+      >
+        Thanh toán thành công!
+      </div>
 
+      <style>
+        #container {
+          min-width: 310px;
+          max-width: 800px;
+          height: 400px;
+          margin: 0 auto;
+        }
+      </style>
+      <script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"
+      ></script>
+      <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"
+      ></script>
+      <script
+        src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"
+      ></script>
+      <script src="https://code.highcharts.com/highcharts.js"></script>
+      <script src="https://code.highcharts.com/modules/series-label.js"></script>
+      <script src="https://code.highcharts.com/modules/exporting.js"></script>
 
-    <style>
-      #container {
-        min-width: 310px;
-        max-width: 800px;
-        height: 400px;
-        margin: 0 auto;
-      }
-    </style>
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.min.js"
-      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/modules/series-label.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-
-    <!-- ! AXIOS -->
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.5/axios.min.js"
-      integrity="sha512-TjBzDQIDnc6pWyeM1bhMnDxtWH0QpOXMcVooglXrali/Tj7W569/wd4E8EDjk1CwOAOPSJon1VfcEt1BI4xIrA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <!-- ! MY JS -->
-    <script src="./js/index.js"></script>
-
-  </div>
-</body>
+      <!-- ! AXIOS -->
+      <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.5/axios.min.js"
+        integrity="sha512-TjBzDQIDnc6pWyeM1bhMnDxtWH0QpOXMcVooglXrali/Tj7W569/wd4E8EDjk1CwOAOPSJon1VfcEt1BI4xIrA=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+      ></script>
+      <!-- ! MY JS -->
+      <script src="./js/index.js"></script>
+    </div>
+  </body>
 </html>
