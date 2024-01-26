@@ -26,18 +26,19 @@
         z-index: 1;
       }
     </style>
-    <link rel="stylesheet" href="./home.css" />
+    <link rel="stylesheet" href="./css/index.css" />
   </head>
 
   <body>
     <div id="loading"></div>
 
     <div class="container">
-      <nav class="container navbar navbar-expand-sm navbar-dark bg-primary">
-        <div class="col-4">
-          <a class="navbar-brand" href="#">CYBER PHONE</a>
+      <nav class="container navbar  ">
+        <div class="col-2">
+          <a class="navbar-brand" href="#" > CYBER PHONE</a>
         </div>
-        <div class=" sanPham col-4">
+
+        <div class="sanPham col-4">
           <select
             class="form-control container"
             id="filterPhone"
@@ -48,8 +49,8 @@
             <option type="samsung">Samsung</option>
           </select>
         </div>
-        <div class="col-4">
-          <div class="input-group mb-3">
+        <div class="col-3">
+          <div class="input-group mb-2">
             <button
               onclick="cartInfo()"
               id="cartInfo"
@@ -60,6 +61,14 @@
               Giỏ hàng
             </button>
           </div>
+        </div>
+        <div class="col-2">
+          <a
+            href="./admin.html"
+            style="font-size: 18px"
+            class="badge badge-secondary"
+            >ADMIN</a
+          >
         </div>
       </nav>
       <br />
@@ -94,27 +103,28 @@
 
       <!--  modal -->
       <div class="modal fade" id="myModal">
-        <div class="modal-dialog" >
-          <div class="modal-content"  >
+        <div class="modal-dialog">
+          <div class="modal-content">
             <!-- Modal Header -->
-            <table  class="table table-bordered" >
-              <thead id="thanhToan">
-                <th id="idPhone"> STT</th>
-                <th id="namePhone">Sản Phẩm</th>
-                <th id="imgPhone">Hình Ảnh</th>
-                <th id="pricePhone">Giá</th>
-                <th id="counterPhone">Số lượng</th>
+            <table class="table table-bordered">
+              <thead>
+                <th>STT</th>
+                <th>Sản Phẩm</th>
+                <th>Hình Ảnh</th>
+                <th>Giá</th>
+                <th>Số lượng</th>
+              </thead>
+              <thead id="thanhToan" style="text-align: center;"></thead>
+            </table>
+            <table class="table table-bordered">
+              <thead>
+                <th>Tổng thanh toán</th>
+                <th id="tinhTong"></th>
               </thead>
             </table>
-            <table  class="table table-bordered" >
-            <thead>
-              <th >Tổng thanh toán</th>
-              <th id="tinhTong"></th>
-            </thead>
-          </table>
             <!-- Modal footer -->
             <div class="modal-footer">
-              <button onclick="removeFromCart()" class="btn btn-danger">
+              <button onclick="removeCart()" class="btn btn-danger">
                 Huỷ
               </button>
               <button onclick="addProduct()" class="btn btn-success">
@@ -125,8 +135,12 @@
         </div>
       </div>
       <!--  -->
-    </div>
-    <div id="container"></div>
+
+    <!-- div để hiển thị thông báo -->
+<div id="thongBaoTT" style="display: none;" class="alert alert-success mt-3">
+  Thanh toán thành công!
+</div>
+
 
     <style>
       #container {
@@ -163,6 +177,8 @@
       referrerpolicy="no-referrer"
     ></script>
     <!-- ! MY JS -->
-    <script src="./home.js"></script>
-  </body>
+    <script src="./js/index.js"></script>
+
+  </div>
+</body>
 </html>
