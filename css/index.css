@@ -37,3 +37,6 @@
     
 }
 
+.modal-dialog{
+    min-width: 900px;
+}

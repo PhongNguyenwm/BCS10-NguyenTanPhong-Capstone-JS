@@ -172,6 +172,15 @@ function cartInfo() {
   var tableBody = document.getElementById("thanhToan"); //  tbody trong modal
   var totalCell = document.getElementById("tinhTong"); // hiển thị tổng thanh toán
 
+ // Kiểm tra nếu giỏ hàng không có sản phẩm
+ if (cart.length === 0) {
+  // Hiển thị thông báo
+  alert("Giỏ hàng của bạn đang trống.");
+  window.location.href = "index.html";
+  return;
+}
+
+
   // Reset nội dung của tbody
   tableBody.innerHTML = "";
 
@@ -187,9 +196,24 @@ function cartInfo() {
             <td>${item.product.price}</td>
             <td><img width="50" src="${item.product.img}" alt=""></td>
             <td>
-            <button onclick="giamSL(${index})"> - </button>
-            <span>${item.quantity}</span>
-            <button onclick="tangSL(${index})"> + </button>
+            <span style="font-size:30px">${item.quantity}</span><br>
+            <button style="font-size:10px; background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 4px;
+            margin: 0 5px;" onclick="giamSL(${index})"> - </button>
+            <button style="font-size:10px;background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 4px;
+            margin: 0 5px;" onclick="tangSL(${index})"> + </button>
+            </td>
+            <td>
+            <button class="btn btn-danger" onclick="xoaSL(${index})"> XOÁ </button>
             </td>
         </tr>
         `;
@@ -205,7 +229,7 @@ function cartInfo() {
   });
 
   // Hiển thị tổng thanh toán
-  totalCell.innerHTML = ` ${totalPayment} $`;
+  totalCell.innerHTML = ` ${totalPayment.toLocaleString()} $`;
 }
 
 // Hàm tăng số lượng sản phẩm trong giỏ hàng
@@ -221,6 +245,17 @@ function giamSL(index) {
   var cart = getCartInfo();
   if (cart[index].quantity > 0) {
     cart[index].quantity--;
+    updateCartInfo(cart);
+    cartInfo(); // Cập nhật lại thông tin trong modal
+  }
+}
+
+// hàm xoá từng sản phẩm 
+function xoaSL(index) {
+  var cart = getCartInfo();
+  var xoaSP = [];
+  if (xoaSP) {
+    cart.splice(index,1);
     updateCartInfo(cart);
     cartInfo(); // Cập nhật lại thông tin trong modal
   }
@@ -247,19 +282,14 @@ function addProduct() {
   var thongBaoTT = document.getElementById("thongBaoTT");
   thongBaoTT.style.display = "block";
 
-    // Lấy dữ liệu giỏ hàng từ Local Storage
-    var cart = getCartInfo();
+  // Làm sạch giỏ hàng trên giao diện người dùng
+  var cart = [];
+  cartInfo(); // Cập nhật lại thông tin trong modal
+  // Lưu mảng giỏ hàng vào Local Storage với key là "cart"
+  localStorage.setItem("cart", JSON.stringify(cart));
+  // Hiển thị thông báo mua thành công và thoát ra
+  alert("Đặt hàng thành công!");
 
-    // Làm sạch giỏ hàng trên giao diện người dùng
-    cart = [];
-    cartInfo(); // Cập nhật lại thông tin trong modal
-
-    // Hiển thị thông báo mua thành công và thoát ra
-    alert("Đặt hàng thành công!");
-
-    // Lưu mảng giỏ hàng vào Local Storage với key là "cart"
-    localStorage.setItem("cart", JSON.stringify(cart));
-
-    // chuyển hướng về trang chủ
-    window.location.href = "index.html";
+  // chuyển hướng về trang chủ
+  window.location.href = "index.html";
 }
