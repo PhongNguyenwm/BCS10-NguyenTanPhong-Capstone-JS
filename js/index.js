@@ -247,13 +247,19 @@ function addProduct() {
   var thongBaoTT = document.getElementById("thongBaoTT");
   thongBaoTT.style.display = "block";
 
-      // Làm sạch giỏ hàng trên giao diện người dùn
-      var cart = getCartInfo(cart);
-      
-      cartInfo(cart); // Cập nhật lại thông tin trong modal
-  
-      // Hiển thị thông báo mua thành công và thoát ra
-      alert("Đặt hàng thành công!");
-      // chuyển hướng về trang chủ
-      window.location.href = "index.html";
-  }
+    // Lấy dữ liệu giỏ hàng từ Local Storage
+    var cart = getCartInfo();
+
+    // Làm sạch giỏ hàng trên giao diện người dùng
+    cart = [];
+    cartInfo(); // Cập nhật lại thông tin trong modal
+
+    // Hiển thị thông báo mua thành công và thoát ra
+    alert("Đặt hàng thành công!");
+
+    // Lưu mảng giỏ hàng vào Local Storage với key là "cart"
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    // chuyển hướng về trang chủ
+    window.location.href = "index.html";
+}
